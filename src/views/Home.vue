@@ -4,17 +4,28 @@
       <file-search v-model="searchTitle"></file-search>
       <file-list :fileList="fileList"></file-list>
     </div>
-    <div class="main-container"></div>
+    <div class="main-container">
+      <file-edit
+          v-model="fileItem.content"
+          :title.sync="fileItem.title"
+          :boxShadow="false"
+          :subfield="false"
+          :shortCut="false"
+          @change="onSubmit"
+      ></file-edit>
+    </div>
   </div>
 </template>
 
 <script>
 import fileSearch from '../components/fileSearch'
 import fileList from '../components/fileList'
+import FileEdit from "../components/fileEdit";
 
 export default {
   name: 'Home',
   components: {
+    FileEdit,
     fileSearch,
     fileList
   },
@@ -40,7 +51,16 @@ export default {
         {id: 16, title: '文件名 6', time: '2020-06-21'},
         {id: 17, title: '文件名 6', time: '2020-06-21'},
         {id: 18, title: '文件名 6', time: '2020-06-21'},
-      ]
+      ],
+      fileItem: {
+        content: 'aaa',
+        title: 'bbb'
+      }
+    }
+  },
+  methods: {
+    onSubmit: function (e) {
+      console.log(e)
     }
   }
 }

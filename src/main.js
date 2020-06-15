@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import '@/plugin/element-ui'
+import '@/plugin/mavonEditor'
 
 Vue.config.productionTip = false
 
